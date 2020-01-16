@@ -1,2 +1,5 @@
 # ignore the production folder
 out/
+
+# ignore the documentation folder
+doc/

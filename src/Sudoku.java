@@ -7,7 +7,7 @@
  */
 
 public class Sudoku {
-    private static int[][] startgrid;       // grid that we want to solve
+    private static int[][] finalgrid;       // grid with the solution
     private int[][] grid;                   // grid with the final solution
     private static final int size = 9;      // grid size
     private static final int empty = 0;     // default empty value
@@ -29,6 +29,34 @@ public class Sudoku {
     }
 
     /**
+     * This method sets a 2D int grid as the final grid.
+     * @param grid Contains the grid we want to associate
+     */
+    public void setFinalgrid(int[][] grid) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                this.grid[i][j] = grid[i][j];
+            }
+        }
+    }
+
+    /**
+     * This method gets a 2D int grid as the grid.
+     * @return The Sudoko grid
+     */
+    public int[][] getGrid() {
+        int[][] rgrid = new int[size][size];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                rgrid[i][j] = this.grid[i][j];
+            }
+        }
+
+        return rgrid;
+    }
+
+    /**
      * This method processes an int array by setting all elements to 0.
      * @param array Contains the array we want to reset
      */
@@ -40,7 +68,7 @@ public class Sudoku {
     /**
      * This method return true if all elements of the array are 1 or false if one or more elements are different from 1.
      * @param array Contains the array we want to check
-     * @return boolean Returns true if all elements are 1 or false otherwise.
+     * @return Returns true if all elements are 1 or false otherwise.
      */
     private boolean all1s(int[] array) {
         boolean r = true;
@@ -54,7 +82,7 @@ public class Sudoku {
 
     /**
      * This method checks if all rows of the matrix contain all numbers from 1 to 9 and if there are no repeated numbers.
-     * @return boolean Returns true if all Rows are valid or false otherwise.
+     * @return Returns true if all Rows are valid or false otherwise.
      */
     private boolean validRows() {
         boolean r = true;
@@ -77,7 +105,7 @@ public class Sudoku {
 
     /**
      * This method checks if all columns of the matrix contain all numbers from 1 to 9 and if there are no repeated numbers.
-     * @return boolean Returns true if all Columns are valid or false otherwise.
+     * @return Returns true if all Columns are valid or false otherwise.
      */
     private boolean validColumns() {
         boolean r = true;
@@ -101,7 +129,7 @@ public class Sudoku {
     /**
      * This method checks if a subsquare of the matrix (3x3) contains all numbers from 1 to 9 and has no repeated numbers.
      * @param subsquare Contains the subsquare we want to check
-     * @return boolean Returns true if the subsquare is valid or false otherwise.
+     * @return Returns true if the subsquare is valid or false otherwise.
      */
     private boolean validSubSquare(int[][] subsquare) {
         boolean r = true;
@@ -119,7 +147,7 @@ public class Sudoku {
 
     /**
      * This method divides the matrix into subquares (3x3) and checks if all are valid.
-     * @return boolean Returns true if all subsquares are valid or false otherwise.
+     * @return Returns true if all subsquares are valid or false otherwise.
      */
     private boolean validSquare() {
         boolean r = true;
@@ -141,7 +169,7 @@ public class Sudoku {
 
     /**
      * This method checks if the matrix respects all conditions.
-     * @return boolean Returns true if the matrix is valid or false otherwise.
+     * @return Returns true if the matrix is valid or false otherwise.
      */
     public boolean isValid() {
         return this.validRows() && this.validColumns() && this.validSquare();

@@ -4,6 +4,9 @@ import java.util.Scanner;
 public class SudokuTester {
     private static long start, finish, elapsed;
 
+    /**
+     * This method prints the menu.
+     */
     public static int menu(){
         Scanner in = new Scanner(System.in);
 
@@ -19,10 +22,17 @@ public class SudokuTester {
         return num;
     }
 
+    /**
+     * This method prints the time elapsed.
+     * @param time The time to print
+     */
     public static void printTime(long time){
         System.out.println("The algorithm solved the Sudoku in "+time+"ms");
     }
 
+    /**
+     * This method clears the screen output.
+     */
     public static void clear() throws IOException {
         try
         {

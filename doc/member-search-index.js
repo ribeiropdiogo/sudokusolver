@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"<Unnamed>","c":"Sudoku","l":"isValid()"},{"p":"<Unnamed>","c":"Sudoku","l":"printGrid()"},{"p":"<Unnamed>","c":"Sudoku","l":"setGrid(int[][])"},{"p":"<Unnamed>","c":"Sudoku","l":"Sudoku()","url":"%3Cinit%3E()"}]

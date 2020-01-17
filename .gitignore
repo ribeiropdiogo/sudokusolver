@@ -1,2 +1,5 @@
 # ignore the production folder
 out/
+
+# ignore DS_Store
+.DS_Store

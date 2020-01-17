@@ -1,4 +1,4 @@
-## Sudoku Solver
+# Sudoku Solver
 
 The Sudoko Solver solves a given Sudoku using a selection of different algorithms. This project was built with the main purpose of implementing some algorithms for academic purposes. 
 

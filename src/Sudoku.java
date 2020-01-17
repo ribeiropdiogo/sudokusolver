@@ -74,33 +74,25 @@ public class Sudoku {
     }
 
     /**
-     * This method checks if all rows of the matrix contain all numbers from 1 to 9 and if there are no repeated numbers.
-     * @return Returns true if all Rows are valid or false otherwise.
+     * This method gets the index of the cell in the grid.
+     * @param i The row
+     * @param j The column
+     * @param opt The option row/column
+     * @return Returns the index of the cell.
      */
-    private boolean validRows() {
-        boolean r = true;
-        int[] aux = new int[size];
-
-        resetArray(aux);
-
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                int x = this.finalgrid[i][j] - 1;
-                aux[x]++;
-            }
-
-            r = all1s(aux);
-            resetArray(aux);
+    private int getIndex(int i, int j, String opt) {
+        if (opt.equals("row")){
+            return this.finalgrid[i][j] - 1;
+        } else {
+            return this.finalgrid[j][i] - 1;
         }
-
-        return r;
     }
 
     /**
-     * This method checks if all columns of the matrix contain all numbers from 1 to 9 and if there are no repeated numbers.
+     * This method checks if all columns or rows of the matrix contain all numbers from 1 to 9 and if there are no repeated numbers.
      * @return Returns true if all Columns are valid or false otherwise.
      */
-    private boolean validColumns() {
+    private boolean validRowsColumns(String opt) {
         boolean r = true;
         int[] aux = new int[size];
 
@@ -108,7 +100,7 @@ public class Sudoku {
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                int x = this.finalgrid[j][i] - 1;
+                int x = getIndex(i,j,opt);
                 aux[x]++;
             }
 
@@ -172,7 +164,7 @@ public class Sudoku {
      * @return Returns true if the matrix is valid or false otherwise.
      */
     public boolean isValid() {
-        return this.validRows() && this.validColumns() && this.validSquare();
+        return this.validRowsColumns("row") && this.validRowsColumns("column") && this.validSquare();
     }
 
     /**

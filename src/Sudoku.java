@@ -22,11 +22,7 @@ public class Sudoku {
      * @param grid Contains the grid we want to associate
      */
     public void setGrid(int[][] grid) {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                this.grid[i][j] = grid[i][j];
-            }
-        }
+        this.grid = grid;
     }
 
     /**
@@ -34,11 +30,7 @@ public class Sudoku {
      * @param grid Contains the grid we want to associate
      */
     public void setFinalgrid(int[][] grid) {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                this.finalgrid[i][j] = grid[i][j];
-            }
-        }
+        this.finalgrid = grid;
     }
 
     /**

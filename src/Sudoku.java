@@ -139,6 +139,16 @@ public class Sudoku {
     }
 
     /**
+     * This method fills the subsquare with the values from the grid
+     * @return Returns true if all subsquares are valid or false otherwise.
+     */
+    private void fillSubSquare(int i, int j, int[][]subsquare) {
+        for (int x = 0; x < size / 3; x++)
+            for (int y = 0; y < size / 3; y++)
+                subsquare[x][y] = finalgrid[i + x][j + y];
+    }
+
+    /**
      * This method divides the matrix into subquares (3x3) and checks if all are valid.
      * @return Returns true if all subsquares are valid or false otherwise.
      */
@@ -150,10 +160,7 @@ public class Sudoku {
         for (int i = 0; i < size; i = i + 3)
             for (int j = 0; j < size; j = j + 3) {
                 int[][] subsquare = new int[3][3];
-                for (int x = 0; x < size / 3; x++)
-                    for (int y = 0; y < size / 3; y++)
-                        subsquare[x][y] = finalgrid[i + x][j + y];
-
+                fillSubSquare(i,j,subsquare);
                 r = validSubSquare(subsquare);
             }
 

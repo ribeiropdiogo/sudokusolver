@@ -86,6 +86,30 @@ public class SudokuSolver {
     }
 
     /**
+     * This method checks if the number added is a valid addition.
+     * @param row The row were the number is added
+     * @param column The column where the number is added
+     * @return True if the added number is valid and false otherwise
+     */
+    private boolean tryAllPossible(int row, int column) {
+        for (int number = 1; number <= size; number++) {
+            if (isValid(row, column, number)) {
+                // If the the number is valid we add it to the grid
+                grid[row][column] = number;
+
+                if (solveByBacktracking()) {
+                    // The next step is to call recursively the Backtracking algorithm
+                    return true;
+                } else {
+                    // In case of the number generating an impossible solution we replace it by 0
+                    grid[row][column] = 0;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * This method solves the Sudoko using the backtracking algorithm.
      * @return True if the added number is valid and false otherwise
      */
@@ -95,21 +119,7 @@ public class SudokuSolver {
                 // The first step is to search for an empty cell
                 if (grid[row][column] == 0) {
                     // The second step is to try all possible numbers
-                    for (int number = 1; number <= size; number++) {
-                        if (isValid(row, column, number)) {
-                            // If the the number is valid we add it to the grid
-                            grid[row][column] = number;
-
-                            if (solveByBacktracking()) {
-                                // The next step is to call recursively the Backtracking algorithm
-                                return true;
-                            } else {
-                                // In case of the number generating an impossible solution we replace it by 0
-                                grid[row][column] = 0;
-                            }
-                        }
-                    }
-                    return false;
+                    return tryAllPossible(row,column);
                 }
             }
         }

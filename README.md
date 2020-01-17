@@ -19,6 +19,9 @@ The Sudoko Solver solves a given Sudoku using a selection of different algorithm
 
 This project was built to solve Sudoku's using different algorithms. The main reason is that i like Sudoku and find it interesting to use algorithms to solve the problem. The algorithms that I used in this project resulted from some research in books and websites. I decided to record th eexecution times of the different algorithms to have a slight ideia of which is the fastest. It is importatnt to note that the measured times are not very representative of the real execution times because the machines were the program runs usually have programs running in background.
 
+The algorithms used so far include:
+* [Backtracking Algorithm]
+
 
 ### Built With
 

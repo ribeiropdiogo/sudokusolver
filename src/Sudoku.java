@@ -7,13 +7,14 @@
  */
 
 public class Sudoku {
-    private static int[][] finalgrid;       // grid with the solution
-    private int[][] grid;                   // grid with the final solution
+    private int[][] finalgrid;       // grid with the solution
+    private int[][] grid;                   // grid with the initial solution
     private static final int size = 9;      // grid size
     private static final int empty = 0;     // default empty value
 
     public Sudoku() {
         this.grid = new int[size][size];
+        this.finalgrid = new int[size][size];
     }
 
     /**
@@ -35,7 +36,7 @@ public class Sudoku {
     public void setFinalgrid(int[][] grid) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                this.grid[i][j] = grid[i][j];
+                this.finalgrid[i][j] = grid[i][j];
             }
         }
     }
@@ -92,7 +93,7 @@ public class Sudoku {
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                int x = this.grid[i][j] - 1;
+                int x = this.finalgrid[i][j] - 1;
                 aux[x]++;
             }
 
@@ -115,7 +116,7 @@ public class Sudoku {
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                int x = this.grid[j][i] - 1;
+                int x = this.finalgrid[j][i] - 1;
                 aux[x]++;
             }
 
@@ -159,7 +160,7 @@ public class Sudoku {
                 int[][] subsquare = new int[3][3];
                 for (int x = 0; x < size / 3; x++)
                     for (int y = 0; y < size / 3; y++)
-                        subsquare[x][y] = grid[i + x][j + y];
+                        subsquare[x][y] = finalgrid[i + x][j + y];
 
                 r = validSubSquare(subsquare);
             }
@@ -181,7 +182,7 @@ public class Sudoku {
     public void printGrid() {
         for (int row = 0; row < size; row++) {
             for (int column = 0; column < size; column++) {
-                System.out.print(grid[row][column] + " ");
+                System.out.print(finalgrid[row][column] + " ");
             }
             System.out.println();
         }

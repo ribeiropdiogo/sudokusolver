@@ -7,7 +7,7 @@ public class SudokuTester {
     /**
      * This method prints the menu.
      */
-    public static int menu(){
+    private static int menu(){
         Scanner in = new Scanner(System.in);
 
         System.out.println("    Sudoku Solver Testing");
@@ -17,23 +17,22 @@ public class SudokuTester {
         System.out.println();
         System.out.print(" Option: ");
 
-        int num = in.nextInt();
-
-        return num;
+        return in.nextInt();
     }
 
     /**
      * This method prints the time elapsed.
      * @param time The time to print
      */
-    public static void printTime(long time){
+    private static void printTime(long time){
+        System.out.println();
         System.out.println("The algorithm solved the Sudoku in "+time+"ms");
     }
 
     /**
      * This method clears the screen output.
      */
-    public static void clear() throws IOException {
+    private static void clear() {
         try
         {
             final String os = System.getProperty("os.name");
@@ -55,7 +54,29 @@ public class SudokuTester {
         System.out.print("\033[H\033[2J");
     }
 
+    /**
+     * This method print the press Enter to continue message.
+     */
+    private static void pressENTER() throws IOException {
+        System.out.println("Press ENTER to continue.");
+        System.in.read();
+        clear();
+    }
+
+    /**
+     * This method checks if the solution of the Sudoku is valid.
+     */
+    private static void checkValid(Sudoku s) {
+        if (s.isValid())
+            System.out.println("The Sudoku solution is valid!");
+        else
+            System.out.println("The Sudoku solution is not valid!");
+    }
+
     public static void main(String[] args) throws IOException {
+        clear();
+
+        Sudoku s = new Sudoku();
         int opt = 0;
         int[][] grid = {
                 {9,0,0,1,0,0,0,0,5},
@@ -68,8 +89,6 @@ public class SudokuTester {
                 {0,0,0,2,0,0,9,0,0},
                 {0,0,1,9,0,4,5,7,0},
         };
-
-        Sudoku s = new Sudoku();
 
         while (opt != -1){
             s.setGrid(grid);
@@ -87,16 +106,10 @@ public class SudokuTester {
                 s.setFinalgrid(ss.getGrid());
                 s.printGrid();
 
-                System.out.println();
                 printTime(elapsed);
+                checkValid(s);
+                pressENTER();
 
-                if (s.isValid())
-                    System.out.println("Grid is valid");
-                else
-                    System.out.println("Grid is not valid");
-
-                System.in.read();
-                clear();
             } else if (opt == 0){
                 opt = -1;
             }

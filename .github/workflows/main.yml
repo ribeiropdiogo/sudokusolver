@@ -13,4 +13,4 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
-      - run: javac $(find ./rootdir/* | grep .java)
+      - run: javac src/Sudoku/Backtracking/*.java src/Sudoku/DancingLinks/*.java src/Sudoku/*.java

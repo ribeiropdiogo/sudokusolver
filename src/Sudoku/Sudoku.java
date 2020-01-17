@@ -1,3 +1,5 @@
+package Sudoku;
+
 /**
  * The Sudoku class implements all functions necessary to represent the Sudoku and to check if it is valid.
  *
@@ -38,15 +40,7 @@ public class Sudoku {
      * @return The Sudoko grid
      */
     public int[][] getGrid() {
-        int[][] rgrid = new int[size][size];
-
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                rgrid[i][j] = this.grid[i][j];
-            }
-        }
-
-        return rgrid;
+        return this.grid;
     }
 
     /**
@@ -131,8 +125,10 @@ public class Sudoku {
     }
 
     /**
-     * This method fills the subsquare with the values from the grid
-     * @return Returns true if all subsquares are valid or false otherwise.
+     * This method fills the subsquare with the values from the grid.
+     * @param i Row
+     * @param j Column
+     * @param subsquare Subsquare
      */
     private void fillSubSquare(int i, int j, int[][]subsquare) {
         for (int x = 0; x < size / 3; x++)

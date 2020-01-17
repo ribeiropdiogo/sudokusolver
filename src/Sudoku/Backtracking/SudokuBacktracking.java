@@ -1,17 +1,20 @@
+package Sudoku.Backtracking;
+import Sudoku.Sudoku;
+
 /**
- * The SudokuSolver class implements solves Sudoku using different algorithms and uses some measures for performance.
+ * The SudokuBacktracking class solves the Sudoku using the Backtracking Algorithm.
  *
  * @author  Diogo Ribeiro
  * @version 1.0
  * @since   2020-01-16
  */
 
-public class SudokuSolver {
+public class SudokuBacktracking {
     private Sudoku s;
     private int[][] grid;
     private final static int size = 9;
 
-    public SudokuSolver(Sudoku s) {
+    public SudokuBacktracking(Sudoku s) {
         this.s = s;
         this.grid = s.getGrid();
     }

@@ -1,3 +1,6 @@
+import Sudoku.Backtracking.SudokuBacktracking;
+import Sudoku.Sudoku;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -84,6 +87,27 @@ public class SudokuTester {
             System.out.println("The Sudoku solution is not valid!");
     }
 
+    /**
+     * This solves the Sudoku using the Backtracking Algorithm.
+     * @param s The Sudoku to solve
+     */
+    private static void solveByBacktracking(Sudoku s) throws IOException{
+        SudokuBacktracking sb = new SudokuBacktracking(s);
+        clear();
+
+        start = System.currentTimeMillis();
+        sb.solveByBacktracking();
+        finish = System.currentTimeMillis();
+        elapsed = finish - start;
+
+        s.setFinalgrid(sb.getGrid());
+        s.printGrid();
+
+        printTime(elapsed);
+        checkValid(s);
+        pressENTER();
+    }
+
     public static void main(String[] args) throws IOException {
         clear();
 
@@ -92,24 +116,10 @@ public class SudokuTester {
 
         while (opt != -1){
             s.setGrid(grid);
-            SudokuSolver ss = new SudokuSolver(s);
             opt = menu();
 
             if (opt == 1) {
-                clear();
-
-                start = System.currentTimeMillis();
-                ss.solveByBacktracking();
-                finish = System.currentTimeMillis();
-                elapsed = finish - start;
-
-                s.setFinalgrid(ss.getGrid());
-                s.printGrid();
-
-                printTime(elapsed);
-                checkValid(s);
-                pressENTER();
-
+                solveByBacktracking(s);
             } else if (opt == 0){
                 opt = -1;
             }

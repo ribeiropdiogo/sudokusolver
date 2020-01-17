@@ -48,8 +48,8 @@ public class SudokuSolver {
      * @return True if the row contains the number and false otherwise
      */
     private boolean isInCol(int column, int number) {
-        for (int i = 0; i < size; i++)
-            if (grid[i][column] == number)
+        for (int j = 0; j < size; j++)
+            if (grid[j][column] == number)
                 return true;
 
         return false;

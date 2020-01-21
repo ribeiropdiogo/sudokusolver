@@ -26,7 +26,8 @@ public class SudokuTester {
 
         System.out.println("    Sudoku Solver Testing");
         System.out.println();
-        System.out.println("  1 - Backtracking Algorithm");
+        System.out.println("  1 - Batch Mode");
+        System.out.println("  2 - Backtracking Algorithm");
         System.out.println("  0 - Exit");
         System.out.println();
         System.out.print(" Option: ");
@@ -108,6 +109,20 @@ public class SudokuTester {
         pressENTER();
     }
 
+    private static void batchmode(){
+        try {
+            Scanner in = new Scanner(System.in);
+            clear();
+            System.out.println();
+            System.out.print("Specify the number of tests to run: ");
+            BatchMode batch = new BatchMode(in.nextInt());
+            batch.execute();
+            pressENTER();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         clear();
 
@@ -118,8 +133,10 @@ public class SudokuTester {
             s.setGrid(grid);
             opt = menu();
 
-            if (opt == 1) {
+            if (opt == 2) {
                 solveByBacktracking(s);
+            } else if (opt == 1){
+                batchmode();
             } else if (opt == 0){
                 opt = -1;
             }

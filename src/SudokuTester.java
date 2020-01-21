@@ -115,7 +115,7 @@ public class SudokuTester {
             clear();
             System.out.println();
             System.out.print("Specify the number of tests to run: ");
-            BatchMode batch = new BatchMode(in.nextInt());
+            BatchMode batch = new BatchMode(in.nextInt(),grid);
             batch.execute();
             pressENTER();
         } catch (Exception e){

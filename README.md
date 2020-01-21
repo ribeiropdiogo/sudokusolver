@@ -5,7 +5,7 @@ The Sudoko Solver solves a given Sudoku using a selection of different algorithm
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
 [![Code Climate](https://codeclimate.com/github/ribeiropdiogo/sudokusolver/badges/gpa.svg)](https://codeclimate.com/github/ribeiropdiogo/sudokusolver)
-[![GitHub Actions status | ribeiropdiogo/sudokusolver](https://github.com/ribeiropdiogo/sudokusolver/workflows/.github/workflows/main.yml/badge.svg)](https://github.com/ribeiropdiogo/sudokusolver/actions)
+[![GitHub Actions status | ribeiropdiogo/sudokusolver](https://github.com/ribeiropdiogo/sudokusolver/workflows/.github/workflows/Build/badge.svg)](https://github.com/ribeiropdiogo/sudokusolver/actions)
 
 ## Table of Contents
 
